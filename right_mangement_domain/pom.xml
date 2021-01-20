@@ -10,6 +10,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>right_mangement_domain</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>com.zww</groupId>
+            <artifactId>right_mangement_utils</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
 
 </project>

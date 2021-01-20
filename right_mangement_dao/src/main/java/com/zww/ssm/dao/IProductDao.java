@@ -1,6 +1,7 @@
 package com.zww.ssm.dao;
 
 import com.zww.ssm.domain.Product;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
@@ -16,4 +17,13 @@ public interface IProductDao {
      */
     @Select("select * from product")
     List<Product> findAll() throws Exception;
+
+    /**
+     * 保存产品
+     * @param product
+     */
+    @Insert("insert into product " +
+            "(productNum,productName,cityName,DepartureTime,productPrice,productDesc,productStatus) " +
+            "value (#{productNum},#{productName},#{cityName},#{DepartureTime},#{productPrice},#{productDesc},#{productStatus})")
+    void save(Product product);
 }
