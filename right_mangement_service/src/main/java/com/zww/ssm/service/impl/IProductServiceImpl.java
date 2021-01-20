@@ -23,7 +23,22 @@ public class IProductServiceImpl implements IProductService {
     }
 
     @Override
-    public void save(Product product) {
+    public void save(Product product) throws Exception {
         productDao.save(product);
+    }
+
+    @Override
+    public void deleteById(String id) throws Exception {
+        productDao.deleteById(id);
+    }
+
+    @Override
+    public Product findById(String id) throws Exception {
+        return productDao.findProductById(id);
+    }
+
+    @Override
+    public Boolean updateProduct(Product product) throws Exception {
+        return productDao.updateProduct(product);
     }
 }

@@ -64,7 +64,7 @@ public class Product {
     //日期格式转换
     public String getDepartureTimeStr() {
         if (DepartureTime != null) {
-            DepartureTimeStr = DateUtil.date2Str(DepartureTime, "yyyy-MM-dd");
+            DepartureTimeStr = DateUtil.date2Str(DepartureTime, "yyyy-MM-dd HH:mm");
         }
         return DepartureTimeStr;
     }
