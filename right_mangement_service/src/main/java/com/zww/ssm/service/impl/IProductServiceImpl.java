@@ -18,8 +18,8 @@ public class IProductServiceImpl implements IProductService {
     @Autowired
     private IProductDao productDao;
     @Override
-    public List<Product> findAll() throws Exception {
-        return productDao.findAll();
+    public List<Product> findAll(String fuzzyName) throws Exception {
+        return productDao.findAll(fuzzyName);
     }
 
     @Override
@@ -40,5 +40,15 @@ public class IProductServiceImpl implements IProductService {
     @Override
     public Boolean updateProduct(Product product) throws Exception {
         return productDao.updateProduct(product);
+    }
+
+    @Override
+    public void deleteByIdStr(String idStr) throws Exception{
+        String[] idStrs = idStr.split(",");
+        Integer[] ids = new Integer[idStrs.length];
+        for (int i = 0; i < ids.length; i++) {
+            ids[i] = Integer.parseInt(idStrs[i]);
+        }
+        productDao.deleteByIds(ids);
     }
 }

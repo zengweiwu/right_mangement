@@ -218,8 +218,9 @@
                             <div class="has-feedback">
                                 <form id="form1" action="${pageContext.request.contextPath}/product/findAll.do" method="post">
                                     <input type="text" class="form-control input-sm" name="fuzzyName" value="${fuzzyName}"
-                                           placeholder="产品名称搜索">
-                                    <span type="submit"  class="bg-maroon glyphicon glyphicon-search form-control-feedback"/>
+                                           placeholder="输入产品名称按回车键搜索"/>
+                                    <%--<button>搜索</button>--%>
+                                    <button type="submit" class="bg-maroon glyphicon glyphicon-search form-control-feedback">搜索</button>
                                 </form>
                             </div>
                         </div>
@@ -247,7 +248,7 @@
                             <tbody>
 
 
-                            <c:forEach items="${productList}" var="product">
+                            <c:forEach items="${pageInfo.list}" var="product">
 
                                 <tr>
                                     <td><input value="${product.id}" name="ids" type="checkbox"></td>

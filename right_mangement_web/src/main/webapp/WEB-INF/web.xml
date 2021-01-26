@@ -7,7 +7,7 @@
     <!-- 配置加载类路径的配置文件 -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath*:applicationContext.xml</param-value>
+        <param-value>classpath*:applicationContext.xml,classpath*:spring-security.xml</param-value>
     </context-param>
     <!--,classpath*:spring-security.xml-->
     <!-- 配置监听器 -->
@@ -17,14 +17,15 @@
     <listener>
         <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
     </listener>
-    <!--<filter>
+    <!-- 权限认证过滤器 -->
+    <filter>
         <filter-name>springSecurityFilterChain</filter-name>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>springSecurityFilterChain</filter-name>
         <url-pattern>/*</url-pattern>
-    </filter-mapping>-->
+    </filter-mapping>
 
     <!-- 前端控制器（加载classpath:springmvc.xml 服务器启动创建servlet） -->
     <servlet>

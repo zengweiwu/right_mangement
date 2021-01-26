@@ -1,10 +1,7 @@
 package com.zww.ssm.dao;
 
 import com.zww.ssm.domain.Product;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -16,9 +13,13 @@ public interface IProductDao {
      * 查询所有产品
      * @return
      * @throws Exception
+     * @param fuzzyName
      */
-    @Select("select * from product")
-    List<Product> findAll() throws Exception;
+    @Select({"<script>"+
+            "select * from product <where> "+
+            "<if test='fuzzyName != null and fuzzyName !=\"\" ' > and productName like concat(concat('%', #{fuzzyName}),'%')</if> " +
+            "</where></script>"})
+    List<Product> findAll(@Param("fuzzyName") String fuzzyName) throws Exception;
 
     /**
      * 保存产品
@@ -52,4 +53,12 @@ public interface IProductDao {
      */
     @Update("update product set productNum = #{productNum},productName = #{productName},cityName = #{cityName},DepartureTime = #{DepartureTime},productPrice = #{productPrice},productDesc = #{productDesc},productStatus = #{productStatus} where id = #{id}")
     Boolean updateProduct(Product product)throws Exception;
+
+    /**
+     * 批量删除 sql在ProductSqlProvider拼接完成
+     * @param ids
+     * @throws Exception
+     */
+   @DeleteProvider(type = ProductSqlProvider.class,method = "deleteByIds")
+    void deleteByIds(@Param("ids")Integer[] ids)throws Exception;
 }

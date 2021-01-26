@@ -14,4 +14,17 @@ public interface IOrdersService {
      * @throws Exception
      */
     List<Orders> findAll() throws Exception;
+
+    /**
+     * 删除订单
+     * @param oId
+     */
+    void deleteOrder(String oId) throws Exception;
+
+    /**
+     * 查询订单详情
+     * @param id
+     * @return
+     */
+    Orders findById(String id) throws Exception;
 }

@@ -436,7 +436,7 @@
     //删除订单操作
     function delOrderById(id){
         if (confirm("确定删除该条订单吗？")){
-            location.href="${pageContext.request.contextPath}/orders/deleteById.do?id="+id;
+            location.href="${pageContext.request.contextPath}/orders/deleteOrder.do?id="+id;
         }
     }
 

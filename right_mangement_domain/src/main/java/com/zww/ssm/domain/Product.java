@@ -13,7 +13,7 @@ public class Product {
     private String productNum;  //产品编号
     private String productName;  //产品名称
     private String cityName;  //出发城市
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")//利用此注解可以将指定格式的字符串转换为date类型
     private Date DepartureTime;  //出发时间
     private String DepartureTimeStr;
     private Double productPrice;  //产品价格

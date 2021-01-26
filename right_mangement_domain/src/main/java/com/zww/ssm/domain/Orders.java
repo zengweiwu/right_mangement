@@ -16,12 +16,26 @@ public class Orders {
     private Integer peopleCount;  //人数
     private String orderDesc;
     private Integer payType;  //支付类型 0 微信支付 1 支付宝支付 2 其他
+    private String payTypeStr;
     private Integer orderStatus;
     private String orderStatusStr;
     private Product product;
     private Member member;
     private List<Traveller> travellers;
 
+
+    public String getPayTypeStr() {
+        if (payType == 0){
+            payTypeStr = "微信支付";
+        }
+        if (payType == 1){
+            payTypeStr = "支付宝支付";
+        }
+        if (payType == 0){
+            payTypeStr = "其他支付";
+        }
+        return payTypeStr;
+    }
 
     public String getOrderTimeStr() {
         if (orderTime != null){

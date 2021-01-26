@@ -8,9 +8,32 @@ public class Traveller {
     private String name;
     private String sex;
     private String phoneNum;
-    private Integer credentialsType;//证件类型
+    private Integer credentialsType;//证件类型 0 身份证 1 其他
+    private String credentialsTypeStr;
     private String credentialsNum;
     private Integer travellerType;//游客类型 0 成人 1 儿童
+    private String travellerTypeStr;
+
+    public String getCredentialsTypeStr() {
+        if (credentialsType == 0){
+            credentialsTypeStr = "身份证";
+        }else{
+            credentialsTypeStr ="其他";
+        }
+        return credentialsTypeStr;
+    }
+
+
+
+    public String getTravellerTypeStr() {
+        if (travellerType == 0){
+            travellerTypeStr = "成人";
+        }else{
+            travellerTypeStr ="儿童";
+        }
+        return travellerTypeStr;
+    }
+
 
     public Integer getId() {
         return id;

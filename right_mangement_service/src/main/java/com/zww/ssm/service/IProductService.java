@@ -10,8 +10,9 @@ public interface IProductService {
      * 查询所有产品
      * @return
      * @throws Exception
+     * @param fuzzyName
      */
-     List<Product> findAll() throws Exception;
+     List<Product> findAll(String fuzzyName) throws Exception;
 
     /**
      * 保存产品
@@ -37,4 +38,10 @@ public interface IProductService {
      * @return
      */
     Boolean updateProduct(Product product)throws Exception;
+
+    /**
+     * 批量删除
+     * @param idStr
+     */
+    void deleteByIdStr(String idStr) throws Exception;
 }
